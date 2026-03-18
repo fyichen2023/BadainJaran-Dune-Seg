@@ -53,9 +53,8 @@ All released datasets are packaged and distributed via the repository **Releases
 - **Spatial vector databases**:  
   - `dune_database.shp`  
   - `dune_database.gpkg`
-- **Attribute tables**:  
+- **Attribute table**:  
   - `dune_attributes.csv`  
-  - `dune_attributes.xlsx`
 
 Please navigate to the **Releases** section of this repository to download the latest versioned data package (currently V1.0 pre-release).
 
@@ -69,7 +68,6 @@ Please navigate to the **Releases** section of this repository to download the l
   - `dune_database.gpkg`
 - **属性数据表**：  
   - `dune_attributes.csv`  
-  - `dune_attributes.xlsx`
 
 请前往仓库 **Releases** 页面下载最新版本化数据包（当前为 V1.0 预发布数据）。
 
