@@ -94,7 +94,109 @@ Please navigate to the **Releases** section of this repository to download the l
 
 ---
 
-## 5) Contact
+## 5) Morphometric Attribute Extraction Script
+
+### English
+The repository includes a ready-to-run Python script for automatically extracting per-dune morphometric attributes from raster inputs:
+
+```
+scripts/extract_dune_attributes.py
+```
+
+**Dependencies**
+
+```
+numpy, rasterio, shapely, geopandas, pandas, scipy, tqdm, (openpyxl – optional, for Excel output)
+```
+
+**Expected input directory layout**
+
+```
+project_root/
+├── data/
+│   ├── rasters/
+│   │   ├── mask.tif        # Instance-labelled dune mask (integer pixel values = Dune_ID)
+│   │   ├── dem.tif         # Digital Elevation Model
+│   │   ├── slope.tif       # Slope raster (degrees)
+│   │   └── aspect.tif      # Aspect raster (degrees)
+│   └── vectors/
+│       └── area.shp        # (Optional) Partition/subregion polygons
+├── scripts/
+│   └── extract_dune_attributes.py
+└── output/
+    └── dune_database/      # Auto-created; outputs written here
+```
+
+All input paths can be overridden via environment variables:  
+`DUNE_MASK_PATH`, `DUNE_DEM_PATH`, `DUNE_SLOPE_PATH`, `DUNE_ASPECT_PATH`, `DUNE_AREA_PATH`, `DUNE_OUTPUT_DIR`
+
+**Run**
+
+```bash
+python scripts/extract_dune_attributes.py
+```
+
+**Outputs** (written to `output/dune_database/`)
+
+| File | Format | Description |
+|---|---|---|
+| `dune_database.shp` | Shapefile | Per-dune polygons with all attributes |
+| `dune_database.gpkg` | GeoPackage | Same as above in GPKG format |
+| `dune_attributes.csv` | CSV | Attribute table only (UTF-8 BOM) |
+| `dune_attributes.xlsx` | Excel | Attribute table (requires openpyxl) |
+
+### 中文
+仓库内提供可直接运行的 Python 脚本，用于从栅格输入自动提取逐沙山形态参数：
+
+```
+scripts/extract_dune_attributes.py
+```
+
+**依赖包**
+
+```
+numpy, rasterio, shapely, geopandas, pandas, scipy, tqdm, (openpyxl – 可选，用于 Excel 输出)
+```
+
+**输入目录结构**
+
+```
+project_root/
+├── data/
+│   ├── rasters/
+│   │   ├── mask.tif        # 实例标注掩膜（像元值 = Dune_ID）
+│   │   ├── dem.tif         # 数字高程模型
+│   │   ├── slope.tif       # 坡度栅格（度）
+│   │   └── aspect.tif      # 坡向栅格（度）
+│   └── vectors/
+│       └── area.shp        # （可选）分区矢量面
+├── scripts/
+│   └── extract_dune_attributes.py
+└── output/
+    └── dune_database/      # 自动创建，结果输出至此
+```
+
+所有输入路径均可通过环境变量覆盖：  
+`DUNE_MASK_PATH`、`DUNE_DEM_PATH`、`DUNE_SLOPE_PATH`、`DUNE_ASPECT_PATH`、`DUNE_AREA_PATH`、`DUNE_OUTPUT_DIR`
+
+**运行**
+
+```bash
+python scripts/extract_dune_attributes.py
+```
+
+**输出文件**（保存至 `output/dune_database/`）
+
+| 文件 | 格式 | 说明 |
+|---|---|---|
+| `dune_database.shp` | Shapefile | 含全部属性的逐沙山多边形 |
+| `dune_database.gpkg` | GeoPackage | 同上，GPKG 格式 |
+| `dune_attributes.csv` | CSV | 仅属性表（UTF-8 BOM） |
+| `dune_attributes.xlsx` | Excel | 属性表（需要 openpyxl） |
+
+---
+
+## 6) Contact
 
 - **Project Maintainer / 项目维护者**: `@fyichen2023`  
 - **Repository / 项目地址**: https://github.com/fyichen2023/BadainJaran-Dune-Seg
